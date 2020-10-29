@@ -14,14 +14,14 @@ library(dplyr)
 
 ```{r}
 
-americandata <- read.csv("C://Users//Bashar//Downloads//playersbystate.csv")
+americandata <- read.csv("C://Users//Nick//Downloads//playersbystate.csv")
 head(americandata)
 
 ```
 
 ```{r}
 
-eurodata <- read.csv("C://Users//Bashar//Downloads//euro.csv")
+eurodata <- read.csv("C://Users//Nick//Downloads//euro.csv")
 
 ```
 
