@@ -1,0 +1,81 @@
+---
+title: "PlayersFrom"
+output: html_document
+---
+
+
+```{r}
+
+library(tidyverse)
+library(dplyr)
+
+```
+
+
+```{r}
+
+americandata <- read.csv("C://Users//Bashar//Downloads//playersbystate.csv")
+head(americandata)
+
+```
+
+```{r}
+
+eurodata <- read.csv("C://Users//Bashar//Downloads//euro.csv")
+
+```
+
+
+```{r}
+
+americandata <- Filter(function(x)!all(is.na(x)), americandata)
+
+```
+
+```{r}
+americandata$PTS <- as.numeric(as.character(americandata$PTS))
+eurodata$PTS <- as.numeric(as.character(eurodata$PTS))
+```
+
+
+```{r}
+
+europoint <- eurodata%>%
+  group_by(City) %>%
+    summarise(TotalPoints = sum(PTS, na.rm = TRUE))
+
+```
+
+```{r}
+
+europoint1000 <- europoint%>%
+  filter(TotalPoints > 1000)
+
+```
+
+
+```{r}
+
+point <- americandata%>%
+  group_by(City, State) %>%
+    summarise(TotalPoints = sum(PTS, na.rm = TRUE))
+
+```
+
+
+```{r}
+
+point1000 <- point%>%
+  filter(TotalPoints > 1000)
+
+```
+
+
+```{r}
+
+tableA <- americandata%>%
+  group_by(City, State) %>% 
+    summarize(Frequency = n())
+
+```
+
