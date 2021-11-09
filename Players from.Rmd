@@ -3,14 +3,12 @@ title: "PlayersFrom"
 output: html_document
 ---
 
-
 ```{r}
 
 library(tidyverse)
 library(dplyr)
 
 ```
-
 
 ```{r}
 
@@ -25,7 +23,6 @@ eurodata <- read.csv("C://Users//Nick//Downloads//euro.csv")
 
 ```
 
-
 ```{r}
 
 americandata <- Filter(function(x)!all(is.na(x)), americandata)
@@ -33,10 +30,11 @@ americandata <- Filter(function(x)!all(is.na(x)), americandata)
 ```
 
 ```{r}
+
 americandata$PTS <- as.numeric(as.character(americandata$PTS))
 eurodata$PTS <- as.numeric(as.character(eurodata$PTS))
-```
 
+```
 
 ```{r}
 
@@ -53,7 +51,6 @@ europoint1000 <- europoint%>%
 
 ```
 
-
 ```{r}
 
 point <- americandata%>%
@@ -62,14 +59,12 @@ point <- americandata%>%
 
 ```
 
-
 ```{r}
 
 point1000 <- point%>%
   filter(TotalPoints > 1000)
 
 ```
-
 
 ```{r}
 
